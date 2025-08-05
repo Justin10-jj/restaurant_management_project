@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Restaurent</title>
+    </head>
+    <body>
+        <div id="menu"></div>
+        <h1>Restaurent menu</h1>
+        <script>
+            fetch('/api/,menu/')
+            .then(response =>response.json())
+            .ten(data => {
+            const menuDiv=documnet.getElementById('menu');
+            data.result.forEach(item=>{
+            menuDiv.innerHTML +=
+            <h2>${item.name}</h2>
+            <p>${item.description}</p>
+            <p>${item.price}</p>
+            });
+            })
+            </script>
+            </body>
+</html>
