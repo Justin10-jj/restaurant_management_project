@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title> About{{restaurant_name}}</title>
+        <style>
+            body{
+            font-family:Times New Roman;
+            backgrounfd-color:f5f7fa;
+            margin:0;
+            padding:0;
+            text-align:center;
+            }
+            nav{
+            backgrounfd-color:f5f7fa;
+            padding:15px 0;
+            }
+            .container{
+            max-width:700px;
+            margin:50px auto 100px auto;
+            padding:40px;
+            backgrounfd-color:white;
+            border-radius:10px;
+            
+            }
+            h1{
+            color:#555;
+            font-size:18px;
+            line-height:1.6;
+            }
+            p{
+            font-size:18px;
+            color:#555;
+            }
+            </head>
+            <body>
+            <nav>
+            <a href "{% url 'homepage' %">Home</a>
+            </nav>
+            <div class ="container">
+            <h1> About{{restaurant_name}}</h1>
+            <p>
+            welcome to our restaurant where culinary art meet passion!our restaurant offers a warm,inviting atmosphere with dishes crafted from the refresh ingrredients.we are committed to providing you an unforgettable dining experience.
+            </p>
+            <img src={% stsic 'images/res.jpg' %} alt="Restaurant Interior"/>
+            </div>
+            </body>
+            </html>
