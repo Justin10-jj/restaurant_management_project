@@ -1,9 +1,6 @@
-class MenuAPI(APIView):
-    def get(self,request):
-        menu=[
-            {
-                "nmae":"margherita pizza",
-                "description":"classsic pizza",
-                "price":9.99
-            }
-        ]
+def homepage(request):
+    restaurant=Restaurant.objects.first()
+    context={
+        'restaurant_name':restaurant_name if restaurant else"unmaned restaturant
+    }
+    return render(request,homepage.html,context)
