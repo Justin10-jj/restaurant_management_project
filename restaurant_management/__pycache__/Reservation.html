@@ -18,9 +18,16 @@
             color:#333;
 
             }
+            footer{
+            text-align:center;
+            padding:1rem;
+            background-color:f0f0f0;
+            color:#555;
+            font-size:0.9rem;
+            }
             p{
             color:#666;
-            font-size:1.2rem
+            font-size:1.2rem;
             }
             </style>
             </head>
@@ -29,5 +36,11 @@
                     <h1>Reservation</h1>
                     <p>welcom </p>
                 </div>
+                <footer>
+                    <p>&copy;<span id="year"></span>Restorant management.All right reserved.</p>
+                </footer>
+                <script>
+                    document.getElementById('year').textContent=new Date().getFullYear();
+                </script>
             </body>
 </html>
