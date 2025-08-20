@@ -1,0 +1,23 @@
+<footer>
+    <div class="footer-content">
+        <p>&copy;<span id="year"></span>Restaurant Name.All right reserved.</p>
+        <p><strong>Opening Hours:</strong>Mon-Fri:11am-9pm,sat-sun:10am-10pm</p>
+    </div>
+</footer>
+<style>
+    footer{
+    text-align:center;
+    padding:20px;
+    font-size:0.9pm;
+    color:#666;
+    background-color:#f0f0f0;
+    margin-top:40px;
+    }
+    .footer-content p{
+    margin:5px 0;
+    }
+</style>
+<script>
+    document.addEventListener("DOMCcontentLoader",function(){
+    document.getElementById("year").textcontent=new Data().getFullYear();});
+</script>
