@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>
+            Leave Feedback
+        </title>
+        <style>
+            body{
+            font-family:Arial;
+            background-color:#f4f4f4;
+            padding:40px;
+            }
+            .form-container{
+            background:white;
+            padding:30px;
+            max-width:500px;
+            margin:auto;
+            border-radius:4px
+            }
+            button{
+            padding:10px 20px;
+            color:white;
+            bordre:none;
+            cursor:pointer;
+
+            }
+            </style>
+    </head><body>
+        <div class="form-container">
+            <h2> Leave FeedBack</h2>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        </body>
+</html>
