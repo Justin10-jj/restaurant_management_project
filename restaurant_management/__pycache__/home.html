@@ -3,9 +3,41 @@
     <head>
         <title>Restaurent</title>
     </head>
+    <style>
+        
+        .search-container{
+        max-width:500px;
+        margin:30px auto;
+        text-align:center;
+        }
+        .search-container input[type="text"]{
+        width:70%;
+        padding:10px;
+        border-radis:4px;
+        border:1px solid #ccc;
+        font-size:16px;
+        }
+        .serach-container button{
+        padding:10px 15px;
+        font-size:16px;
+        background-color:#004080;
+        color:white;
+        border:none;
+        border-radius:4px;
+        margin-left:5px;
+        }
+        </style>
+
     <body>
+        <div class="serach-container">
+            <form action="" method="get">
+                <input type="text"name="q"placeholder="Search the menu items..."/>
+                <button type="submit">serach</button>
+                </form>
+        </div>
         <div id="menu"></div>
         <h1>Restaurent menu</h1>
+        
         <script>
             fetch('/api/,menu/')
             .then(response =>response.json())
