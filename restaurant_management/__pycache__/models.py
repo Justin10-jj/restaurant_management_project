@@ -8,7 +8,7 @@ class Feedbacks(models.Model):
     submitted_at=models.DataTimeField(auto_now=True)
 
 
-class ContactSubmittion(models.Model):
+class ContactSubmission(models.Model):
     name=modles.CharField(max_length=100)
     email=models.EmailField()
     submitted_at=models.DataTimeField(auto_now_add=True)
