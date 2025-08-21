@@ -20,3 +20,15 @@ def restaturant_list(request):
     except DatabaseError as e:
         print(f"Database error occurred:{e}")
         return HttpResponseServerError("An error ocuured while retrieving restaturants.Please try again later.")
+
+
+def contact(request):
+    if request.method=='POST':
+
+        form=ContactForm(request.POST)
+        if form.is_vaid():
+            form.save()
+            return redirect('homepage')
+    else:
+        form=ContactForm()
+    return render(request,'home.html',{'form':form})
