@@ -6,4 +6,9 @@ class Profile(model.Models):
 class Feedbacks(models.Model):
     comment=models.TextField()
     submitted_at=models.DataTimeField(auto_now=True)
-    
+
+
+class ContactSubmittion(models.Model):
+    name=modles.CharField(max_length=100)
+    email=models.EmailField()
+    submitted_at=models.DataTimeField(auto_now_add=True)
