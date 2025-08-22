@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>our menu</title>
+        <style>
+            body{font-family:Arial;padding:2rem;}
+            .menu-item{border-bottom:1px solid #ccc;margin-botton:1rem}
+            .price{color:green;font-weight:bold;}
+            .menu-item h2{ margin:0; }
+        </style>
+    </head>
+    <body>
+        {% for items in items %}
+        <div class="menu-item">
+            <h2>{{ items.name }}</h2>
+            <p>{{ items.description }}</p>
+            <p class="price">${{ items.price }}</p>
+        </div>
+        {% empty %}
+        <p>no menu items availabile</p>
+        {% endfor %}
+    </body>
+</html>
