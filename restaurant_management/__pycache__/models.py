@@ -12,3 +12,13 @@ class ContactSubmission(models.Model):
     name=modles.CharField(max_length=100)
     email=models.EmailField()
     submitted_at=models.DataTimeField(auto_now_add=True)
+
+class MenuList(models.Model):
+    name=models.CharField(max_length=100)
+    description=models.TextField(blank=True)
+    price=models.DeciamlField(max_digit=6,decimal_places=2)
+
+
+
+    # python manage.py makemigrations
+    # python manage.py migrate
