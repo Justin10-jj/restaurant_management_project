@@ -17,4 +17,4 @@ def menu_list(request):
 
 
 def homepage(request):
-    return render(request,'')
+    return render(request,'homepage.html',{'restaurant_name':settings.RESTAURANT_NAME})
