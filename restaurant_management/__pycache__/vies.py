@@ -13,3 +13,8 @@ def menu_list(request):
             },]
 
     return render(request,'menu/menu_list.html',{'menu_items':menu_items})
+
+
+
+def homepage(request):
+    return render(request,'')
