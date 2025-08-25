@@ -17,8 +17,7 @@ class MenuList(models.Model):
     name=models.CharField(max_length=100)
     description=models.TextField(blank=True)
     price=models.DeciamlField(max_digit=6,decimal_places=2)
-    images=models.ImageField(upload_to='menu_image/',blank=True,null=True)
-
+    image=models.ImageField(upload_to='menu_images/',blank=True,null=True)
 
     # python manage.py makemigrations
     # python manage.py migrate
