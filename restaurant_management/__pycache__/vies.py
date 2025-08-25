@@ -17,4 +17,8 @@ def menu_list(request):
 
 
 def homepage(request):
-    return render(request,'homepage.html',{'restaurant_name':settings.RESTAURANT_NAME})
+    location=RestaurantLocation.objects.first()
+    context={
+        'restaurant_name':settings.RESTAURANT_NAME,
+        'location':location    }
+    return render(request,'homepage.html',context)
