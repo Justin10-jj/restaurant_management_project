@@ -22,3 +22,10 @@ class MenuList(models.Model):
 
     # python manage.py makemigrations
     # python manage.py migrate
+
+
+class RestaurantLocation(models.Model):
+    address=models.CharField(max_length=225)
+    city=models.CharField(max_length=100)
+    state=models.CharField(max_length=100)
+    zip_code=models.CharField(max_length=60)
