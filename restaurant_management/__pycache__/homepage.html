@@ -96,9 +96,13 @@
         </div>
         <section id="location">
             <h2>visit us</h2>
-            <p><strong>Tasty Bites Restaurant</strong></p>
-            123 delhy street<br>
-            FoodVille,FL 1133</p>
+            <p><strong>{{ restaurant_name }}</strong></p>
+           {% if location %}
+           <p>{{ location.city }},{{ location.state }}
+            {{ location.zip_code }} </p>
+            {% else %}
+            <p> Address not availabile </p>
+            {% endif %}
             <div style="max-width:100%;height:auto;">
                 <iframe
                 src="http://"
