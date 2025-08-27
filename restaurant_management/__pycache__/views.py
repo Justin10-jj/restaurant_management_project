@@ -1,16 +1,17 @@
-def contact_view(request):
-    form=ContactForm(request.POST)
-    if request.method=='POST' and form.is_valid():
-        name=form.cleaned_data['name']
-        email=form.cleaned_data['email']
-        message=form.cleaned_data['message']
-        full_message=f"Form:{name}<{email>}>\n\n{message}
-        send_mail(
-            subject="new content form message",
-            message=full_message,
-            form_email=settings.DEFAULT_FORM_EMAIL,
-            recipient_list=['restaurant@gmaul.com'],
-        )
-        return redirect('contact_sucess')
+from django.shortcuts import render
 
-    return render(request,'homepage.html',{'form':form})
+def serachpage(request):
+    query=request.GET.get('search','')
+    if query:
+        menu_item=MenuItem.objects.filter(name_iconation=query)
+    else:
+        menu_item=MenuItem.objects.all()
+
+        location=MenuItem.objects.first()
+        context={
+            'restaurant_name':settings.RESTAURANT_NAME,
+            'location':location,
+            'menu_item':menu_item,
+            'query':query,
+        }
+        return render(request,'menulist.html',context)
