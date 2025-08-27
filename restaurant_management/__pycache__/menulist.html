@@ -13,7 +13,11 @@
         <div class="menu-item">
             <h2>{{ items.name }}</h2>
             <p>{{ items.description }}</p>
+            
             <p class="price">${{ items.price }}</p>
+        {% if item.image %}
+        <img src="{{ item.image.url }}" alt="{{ item.name}}">
+        {{% endif %}}
         </div>
         {% empty %}
         <p>no menu items availabile</p>
