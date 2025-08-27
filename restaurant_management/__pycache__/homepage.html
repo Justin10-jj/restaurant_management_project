@@ -78,6 +78,10 @@
                 </style>
     </head>
     <body>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">send</button>
         <div class="header">
             <h1>Welcome to {{ restaurant_name }}</h1>
             <img src="logo/logo.png"alt="Restaurant Logo/">
