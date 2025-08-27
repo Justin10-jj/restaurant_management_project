@@ -5,3 +5,7 @@ class MenuAdmin(admin.ModelAdmin):
 class OrderAdmin(admin.ModelAdmin):
     list_display=('id','customer','total_amound','status','created_at')
     list_filter=('status','created_at')
+
+class MenuItemAdmin(admin.ModelAdmin):
+    list_display=('name','price')
+    field=('name',)
