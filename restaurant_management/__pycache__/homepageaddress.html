@@ -4,6 +4,10 @@
     </head>
     <body>
         <h1> welcome to {{ restaurant.name }}</h1>
+        
+        {% for day,hours in opening_hours.items %}
+        <li>{{ day }}:{{ hours }}</li>
+        {% endfor %}
         <p><strong>Address:</strong>{{ restaurant.address }}</p>
     </body>
 </html>
