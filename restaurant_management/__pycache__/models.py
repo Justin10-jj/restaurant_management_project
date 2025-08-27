@@ -28,3 +28,4 @@ class RestaurantLocation(models.Model):
     city=models.CharField(max_length=100)
     state=models.CharField(max_length=100)
     zip_code=models.CharField(max_length=60)
+    opening_hour=models.JSONField(default=dict)
