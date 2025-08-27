@@ -8,4 +8,4 @@ class OrderAdmin(admin.ModelAdmin):
 
 class MenuItemAdmin(admin.ModelAdmin):
     list_display=('name','price')
-    field=('name',)
+    field=('name','description','price','image')
