@@ -10,7 +10,11 @@
     </head>
     <body>
         {% for items in items %}
-        <div class="menu-item">
+        <form method="get"action=".">
+            <input type="text"name="serach"placeholder="search menu.."value="{{ query }}">
+            <button type="submit">search</button>
+        </form>
+                    <div class="menu-item">
             <h2>{{ items.name }}</h2>
             <p>{{ items.description }}</p>
             
