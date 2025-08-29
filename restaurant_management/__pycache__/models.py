@@ -42,3 +42,12 @@ DEFAULT_OPENING_HOURS={
     "sat":"closed",
     "sun":"closed",
 }
+
+class Carts(models,Model):
+    user=models.OneToOneField(user,on_delete=models.CASCADE,related_name='cart')
+    def total_items(self):
+        return sum(item.quantity for item in self.item.all())
+    class cartItem(models.Model):
+        cart-models.ForeignKey(cart,related_name='items',on_delete=models.CASCADE)
+        product=models.ForeignKey(product,on_delete=models.CASCADE)
+        quantity=models.PositiveIntegerField(default=1)
