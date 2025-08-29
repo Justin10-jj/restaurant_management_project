@@ -83,9 +83,11 @@
             {{ form.as_p }}
             <button type="submit">send</button>
         <div class="header">
-            <h1>Welcome to {{ restaurant_name }}</h1>
-            <img src="logo/logo.png"alt="Restaurant Logo/">
-            <h1>welcome to our page</h1>
+            {% if restaurant.logo %}
+            <img src="{{ restaurant.log.url }}" alt="{{ restaurant.name }} Logo" style="max-width:200px">
+            {% else %}
+            <p>No logo availabile.</p>
+            {% endif %}
             <p>this page display the user profile</p>
         </div>
         <div class="profile">
