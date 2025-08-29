@@ -93,11 +93,20 @@
             <p><strong>full name:</strong>john</p>
             <p><strong>Email</strong>gg@gmail.com</p>
             <p><strong>phone:</strong>>33465474</p>
-        </div>>
+        </div>
         <div class="error-container">
             <h1> 404</h1>
             <p>this page you are looking for doesnot exist.</p>
         </div>
+        <div>
+
+{% if restaurant.phone_number %}
+<p> call us at:<strong>{{restaurant.phone_number }}
+</strong></p>
+{% else %}
+<p> phone number not availabile
+</p>
+{% endif %}        </div>
         <section id="location">
             <h2>visit us</h2>
             <p><strong>{{ restaurant_name }}</strong></p>
