@@ -18,8 +18,11 @@
             <h2>{{ items.name }}</h2>
             <p>{{ items.description }}</p>
             
+            
             <p class="price">${{ items.price }}</p>
-        {% if item.image %}
+       <p>
+        <a href="{% url 'cart' %}">shopping cart({{ cart_item_count}} items)</a>
+      {% if item.image %}
         <img src="{{ item.image.url }}" alt="{{ item.name}}">
         {{% endif %}}
         </div>
