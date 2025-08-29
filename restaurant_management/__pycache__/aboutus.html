@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title>About {{ restaurant.name }}</title>
+    </head>
+    <body>
+        <h1>About {{ restaurant.name }}</h1>
+        {% if restaurant.logo %}
+        <img src="{{ restaurant.logo.url }}" alt="Logo of {{ restaurant.name }}" style="max_width:200px;">
+        {% endif %}
+        {% if restaurant.history %}
+        <h2>Our History </h2>
+        <p>{{ restaurant.history }}</p>
+        {% endif %}
+        {% if restaurant.mission %}
+        <h2>Our mission</h2>
+        <p>{{ restaurant.mission }}</p>
+        {% endif %}
+        <p><a href="{% url 'homepage' %}">Back to Home</a></p>
+    </body>
+</html>
