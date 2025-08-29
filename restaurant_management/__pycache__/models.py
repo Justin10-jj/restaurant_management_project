@@ -30,6 +30,8 @@ class RestaurantLocation(models.Model):
     zip_code=models.CharField(max_length=60)
     opening_hour=models.JSONField(default=dict)
     phone_number=models.IntegerField(max_length=30)
+    history=models.TextField(null=True,blank=True)
+    mission=models.TextField(null=True,blank=True)
 
 DEFAULT_OPENING_HOURS={
     "monday":"9:00 am - 5:00 pm",
