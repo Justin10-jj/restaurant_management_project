@@ -5,3 +5,8 @@ def Contact_view(request):
             message=form.cleaned_data{'message'}
 
             return render(request,'restaurantcontact.html',{'forms':form})
+
+
+def homepagephone(request):
+    restaurant=Restaurant.objects.all()
+    return render(request,'homepage.html',{'restaurant':restaurant})
