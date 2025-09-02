@@ -66,6 +66,13 @@
                 max-width:600px;
                 box-shadow:0 2px 8px rgb(0,0,0,0.1);
                 }
+                .contact-info{
+                
+                margin-top:20px;
+                fontsize:1.3em;
+                color:#2c3e50;
+                border-radius:6px;
+                }
                 .error-container p{
                 font-size:16px;
                 color:#555;
@@ -89,6 +96,9 @@
             <p>No logo availabile.</p>
             {% endif %}
             <p>this page display the user profile</p>
+        </div>
+        <div class="contact-info">
+            call us:<a href="tel:{{ restaurant_phone}}">{{restaurant_phone}}</a>
         </div>
         <div class="profile">
             <h2>user profile</h2>
