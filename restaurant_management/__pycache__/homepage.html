@@ -73,6 +73,18 @@
                 color:#2c3e50;
                 border-radius:6px;
                 }
+                .breadcrumbs{
+                font-size:0.95em;
+                margin:10px 0 20px 0;
+                color:#555;
+                }
+                .breadcrumbs a{
+                color:#007BFF;
+                text-decoration:none;
+                }
+                .breadcrumbs span {
+                font-weight:bold;
+                }
                 .welcome-tagline{
                 font-size:1.6em;
                 font-align:600;
@@ -110,6 +122,16 @@
             {% endif %}
             <p>this page display the user profile</p>
         </div>
+        <nav class="breadcrumbs">
+            <a href="{% url 'home' %}">Home</a>
+            {% for crumb in crumbs %}
+                {% if forloop.last %}
+                    <span>{{ crumb.name }}</span>
+                {% else %}
+                <a href="{{ crumb.url }}"<{{ crumb.name}} </a>
+                {% endfor %}
+            {% endfor %}
+        </nav>
         <div class="welcome-tagline">
             welcome to our Restaurant-where Flavor meets confort!
         </div>
