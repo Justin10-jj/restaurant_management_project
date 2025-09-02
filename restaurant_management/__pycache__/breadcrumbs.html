@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title>Restaurant Homepage</title>
+    </head>
+        <style>
+            body{
+            font-family:'segoe UI',sans-serif,
+            margin:0;
+            padding:0;
+            background:color:#fdfdfd;
+            }
+            header{
+            background-color:#333;
+            color:white;
+            padding:20px;
+            }
+            .container{
+            max-width:960px;
+            margin:0 auto;
+            padding:20px;
+            }
+            .breadcrumbs a{
+            color:#007BFF;
+            text-decoration:none;
+
+            }
+            .breadcrumbs {
+            font-size:0.9em;
+            margin:10px 0 20px 0;
+            color:#555;
+            }
+            .breadcrumbs span{
+            font-weight:bold
+            }
+            </style>
+            <body>
+                <div class="container">
+                    <nav class="breadcrumbs">
+
+                        <a href="{% url 'home' %}">Home </a>
+                        {% for crumb in crumbs %}
+                            {% if forloop.last %}
+                                <span>{{ crub.name }}</span>
+                            {% else %}
+                            <a href="{{ crumb.url }}">{{ crumb.name }}</a>
+                            {% endif %}
+                        {% endfor %}
+                    </nav>
+                </div>
+            </body>
+</html>
