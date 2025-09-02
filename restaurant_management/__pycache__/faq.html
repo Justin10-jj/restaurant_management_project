@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>FAQs-Restaurant</title>
+        <style>
+            body{
+            font-family:'segoe UI',sans-serif;
+            margin:0;
+            padding:0;
+            background-color:#fafafa;
+            
+                      }
+            .container{
+            max-width:960px;
+            margin:0 auto;
+            padding:40px 20px;
+
+            }
+            h1{
+            text-align:center;
+            margin-bottom:30px;
+            color:#2c3e50;
+            }
+            .faq-item{
+            margin-bottom:20px
+            }
+            .faq-item p{
+            margin:0;
+            }
+            faq-item h3{
+            color:#007BFF;
+            margin-bottom:5px;
+            }
+            a.home-link{
+            display:inline-block;
+            margin-top:30px;
+            text-decoration:none;
+            color"#007BFF;
+            }
+            </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Frequentilly Aked Question</h1>
+            <div class-"faq-item">
+                <h3>What are your opening hours</h3>
+                <p>We are open from 10:00am to 10:00pm,7 days a week.</p>
+            </div>
+                <div class="faq-item">
+                    <h3>Do offer delivery</h3>
+                    <p>yes,we offer delivery through our website and partner apps.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Are reservation required</h3>
+                    <p>Reservation are recommended,especially on weekends but not required</p>
+                </div>
+                <a href="{% url 'homepage' %}"class "home-link">Back to home</a>
+        </div>
+    </body>
+</html>
