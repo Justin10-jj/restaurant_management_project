@@ -1,3 +1,4 @@
+{% now %}
 {% include 'includes/breadcrumbs.html' %}
 <html>
     <head>
@@ -103,6 +104,15 @@
                 font-size:16px;
                 color:#555;
                 }
+                .current-time{
+                margin-top:30px;
+                padding:10px 15px;
+                background:#f1f1f1;
+                border-left:5px solid #007BFF;
+                font-size:1.1em;
+                color:#333;
+                width:fit-content;
+                }
                 location{
                 padding:2rem;
                 background-color:#f8f8f8;
@@ -122,6 +132,9 @@
             <p>No logo availabile.</p>
             {% endif %}
             <p>this page display the user profile</p>
+        </div>
+        <div class="current-time">
+            current Date $ Time:{% now "F j,Y,g:i A" %}
         </div>
         <nav class="breadcrumbs">
             <a href="{% url 'home' %}">Home</a>
