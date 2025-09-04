@@ -143,6 +143,22 @@
                 font-size:0.9em;
                 margin-bottom:10px;
                 }
+                .order-now-container{
+                text-align:center;
+                margin-top:40px;
+
+                }
+                .order-now-btn{
+                display:inline-block;
+                background-color:#28a745;
+                font-weight:bold;
+                border-radius:8px;
+                text-decoration:none;
+                }
+                .order-now-btn:hover{
+                
+                background-color:#218838;
+                }
                 </style>
     </head>
     <body>
@@ -157,6 +173,9 @@
             <p>No logo availabile.</p>
             {% endif %}
             <p>this page display the user profile</p>
+        </div>
+        <div class="order-now-container">
+            <a href="{% url 'order_page %}"class="order-now-btn ">order now</a>
         </div>
         <div class="current-time">
             current Date $ Time:{% now "F j,Y,g:i A" %}
