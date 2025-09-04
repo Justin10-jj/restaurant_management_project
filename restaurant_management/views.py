@@ -14,7 +14,7 @@ def homeee(request):
 
 def menu(request):
     crumbs=[{'name':'menu','url':request.path},]
-    return render(request,'menu.html',{'crumbs':crumbs})
+    return render(request,'menulist.html',{'crumbs':crumbs})
 
 
 
