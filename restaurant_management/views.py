@@ -24,3 +24,19 @@ def desserts(request):
         {'name':'Desserts'.'url'request.path}
     ]
     return render(request,'desserts.html',{'crumbs':crumbs})
+
+def home(request):
+    form=AuthenticationForm(request,data=request.POST or None)
+    error=None
+if request.method=="POST":
+    if form.is_valid():
+        user=form.get_User()
+        login(request,user)
+        return redirect('home')
+    else:
+        error "invalid username and password"
+
+crumbs=[]
+return render(request,home.html),{
+    'form':form,'error':error,'crimbs':crumbs
+}
