@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <title>order confirmation</title>
+        <style>
+            body{
+            font-family:'segoe UI',sans-serif;
+            background-color:#f7f7f7;
+            padding:40px 20px;
+            }
+            .container{
+            max-width:800px;
+            margin:auto;
+            text-align:center;
+
+            }
+            .confirmation-box{
+            background-color:#fff;
+            padding:30px;
+            border-radius:8px;
+            box-shadow:0 4px 10px rgba(0,0,0,0.1)
+            }
+            h1{
+            color:#2ecc71;
+            margin-bottom:20px;
+            }
+            .order-number{
+            
+            
+            font-size:1.2em;
+            margin-top:15px;}
+            
+            a.home-link{
+            
+            dispaly"inline-block;
+            margin-top:30px;
+            text-decoration:none;
+            color:#007BFF;
+            }
+            </style>
+    </head>
+    <body>
+        <div class="container">
+            {% include 'include/breadcrumbs.html '%}
+            <div class="confirmation-box">
+                <h1>Thank you for your order</h1>
+                <p>your order has been placed successfully.</p>
+                <p class="order-number">order-number:<strong>#{{order_number }}</strong></p>
+                <a class="home-link" href="{% url 'home %}">Back to our Home</a>
+            </div>
+        </div>
+    </body>
+</html>
