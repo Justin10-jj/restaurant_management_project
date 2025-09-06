@@ -61,5 +61,5 @@ def About(request):
 
 
 
-def special(request):
-    info=
+def specialListView(ListView):
+    model=specialListView
