@@ -2,6 +2,7 @@
 {% include 'includes/breadcrumbs.html' %}
 <html>
     <head>
+        {% load static %}
         <title>
             Homepage</title>
             <style>
@@ -159,6 +160,24 @@
                 
                 background-color:#218838;
                 }
+                .hero{
+                background: url("{% static 'image/food-hero.jpg' %}")center center no-repat;
+                background-sie:cover;
+                height:60vh;
+                position:relative;
+                text-align:center;
+                color:white;
+                display:flex;
+                align-item:center;
+                justify-content:center;
+                }
+
+                .hero h1{
+                font-size:3em;
+                text-shadow:1px 1px 4px rgb(0,0,0,0.7);
+                }
+                
+                            
                 </style>
     </head>
     <body>
