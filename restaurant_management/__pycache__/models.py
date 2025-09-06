@@ -57,3 +57,9 @@ class Feedbackss(models.Model):
     name=model.CharField(max_length=100)
     message=models.TextField()
     submitted_at=models.DataTimeField(auto_now_add=True)
+
+
+class special(models.Model):
+    name=models.CharField(max_length=100)
+    description=model.TextField()
+    price=models.DeciamlField(max_digit=6,decimal_places=2)
