@@ -50,3 +50,11 @@ def feedback_view(request):
         else:
             form=FeedBackForms()
         return redirect(request,'feedback_form.html',{'form':for,})
+
+
+def About(request):
+    info=RestaurantLocation.object.first()
+    return render(request,'about.html',{
+        'restaurant_name':'restaurant',
+        'info':info
+    })
