@@ -40,3 +40,7 @@ crumbs=[]
 return render(request,home.html),{
     'form':form,'error':error,'crimbs':crumbs
 }
+
+def feedback_view(request):
+    if request.method=='POST':
+        form=FeedBackForms
