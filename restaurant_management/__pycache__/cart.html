@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title> your cart</title>
+        <style>
+            body{
+            font-family:Arial,sans-serif;}
+            table{ width:60px;margin:40px auto;border-collapse:collapse;}
+            th,td{ padding:12px}
+            th{background-color:#f8f8f8 }
+            .total{ font-weight:bold;text-align:right;}
+            </style>
+    </head>
+    <body>
+        <h1 style="text-align:center;">your cart</h1>
+        {% if cart_item %}
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>quantity</th>
+                <th>price</th>
+                <th>subttal</th>
+            </tr>
+            {% for item in cart_item %}
+            <tr>
+                <td>{{ item.name }}</td>
+                <td>{{ item.qty }}</td>
+                <td>{{ item.price }}</td>
+                <td>{{ item.qty|multipile:item.price }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <div class="total">Total:{{ total_price }}</div>
+        {% else %}
+        <p style="text-align:center;">your cart is empty.</p>
+        {% endif %}
+    </body>
+</html>
