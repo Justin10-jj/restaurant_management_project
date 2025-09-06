@@ -58,3 +58,8 @@ def About(request):
         'restaurant_name':'restaurant',
         'info':info
     })
+
+
+
+def special(request):
+    info=
