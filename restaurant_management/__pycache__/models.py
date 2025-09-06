@@ -51,3 +51,9 @@ class Carts(models,Model):
         cart-models.ForeignKey(cart,related_name='items',on_delete=models.CASCADE)
         product=models.ForeignKey(product,on_delete=models.CASCADE)
         quantity=models.PositiveIntegerField(default=1)
+
+
+class Feedbackss(models.Model):
+    name=model.CharField(max_length=100)
+    message=models.TextField()
+    submitted_at=models.DataTimeField(auto_now_add=True)
