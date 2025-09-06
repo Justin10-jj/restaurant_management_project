@@ -1,3 +1,4 @@
+{% load static %}
 <html>
     <head>
         <title> About{{restaurant_name}}</title>
@@ -30,6 +31,12 @@
             font-size:18px;
             color:#555;
             }
+            .restaurant-image{
+            max-width:100%;
+            height:auto;
+            margin-top:20px;
+            border-radius:8px;
+            }
             </head>
             <body>
             <nav>
@@ -38,6 +45,17 @@
             <div class ="container">
             <h1> About{{restaurant_name}}</h1>
             <p>
+            {% if info and info.image %}
+            <img 
+            src="{{ info.image.url }}"
+            alt="Restaurant Image "
+            class="restaurant-image">
+            {% else %}
+            <img 
+            src="{% static 'image/res.jpg' %}"
+            alt="Restaurant Interior"
+            class="restaurant-image"
+            {% endif %}
             welcome to our restaurant where culinary art meet passion!our restaurant offers a warm,inviting atmosphere with dishes crafted from the refresh ingrredients.we are committed to providing you an unforgettable dining experience.
             </p>
             <img src={% static 'images/res.jpg' %} alt="Restaurant Interior"/>
