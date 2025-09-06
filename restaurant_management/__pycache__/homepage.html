@@ -176,6 +176,11 @@
                 font-size:3em;
                 text-shadow:1px 1px 4px rgb(0,0,0,0.7);
                 }
+                .soecials{
+                max-width:800px;margin:40px auto;padding:20px;}
+                .specia{
+                background:#2f2f2f2;padding:15px;border-radius:6px;margin-bottom:15px'
+                }
                 
                             
                 </style>
@@ -198,6 +203,18 @@
         </div>
         <div class="current-time">
             current Date $ Time:{% now "F j,Y,g:i A" %}
+        </div>
+        <div class="specials">
+            {% if specials %}
+            {% for item in specials %}
+            <div class="special">
+                <h3>{{ item.name }}- {{item.price }}</h3>
+                <p>{{ item.descriptopn }}</p>
+            </div>
+            {% endfor %}
+            {% else %}
+            <p> no special availabile right now</p>
+            {% endif %}
         </div>
         <div class="login-box">
             <h3>Login</h3>
