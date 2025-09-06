@@ -43,4 +43,10 @@ return render(request,home.html),{
 
 def feedback_view(request):
     if request.method=='POST':
-        form=FeedBackForms
+        form=FeedBackForms(request.POST)
+        if form.is_valid():
+            form.save()
+            return Redirect('feedback_thank_you')
+        else:
+            form=FeedBackForms()
+        return redirect(request,'feedback_form.html',{'form':for,})
