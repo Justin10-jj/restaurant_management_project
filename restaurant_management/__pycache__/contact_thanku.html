@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <titile>ThankYou</titile>
+        <style>
+            body{
+            
+            font-family:'Segoe UI',sans-serif;
+            background-color:#f5f5f5;
+            text-align:center;
+            padding-top:100px;
+            color:#333;
+            }
+            .thanku-you-box{
+            background:white;
+            display:40px 60px;
+            padding:40px 6-px;
+            border-radius:10px;
+            }
+            h1{
+            color:#004080;
+            }
+            a{
+            display:inline-block;
+            margin-top:20px;
+            color:#007BFF;
+            text-decoration:none;
+            }
+            a:hover{
+            
+            text-decoration:underline;
+            }
+            </style>
+    </head>
+    <body>
+        <div class="thanku-you-box">
+            <h1> ThankYou</h1>
+            <p>your message has been submitted successfullly</p>
+            <a href="{% url 'contact' %}">return</a>
+        </div>
+    </body>
+</html>
