@@ -83,7 +83,7 @@ def contact_view(request):
         form=ContactForm(request.POST)
         if form.is_valid():
             form.save()
-            return render(request,'conatact.html')
+            return render(request,'conatact_thank_you.html')
         else:
             fprm=ContactForm()
         return render(request,'contact.html',{'form':form})
