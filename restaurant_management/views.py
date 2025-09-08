@@ -79,6 +79,7 @@ def OpeniongHour(request):
 
 
 def contact_view(request):
+    restaurant=RestaurantLocation.objects.first()
     if request.method=='POST':
         form=ContactForm(request.POST)
         if form.is_valid():
@@ -86,6 +87,6 @@ def contact_view(request):
             return render(request,'conatact_thank_you.html')
         else:
             fprm=ContactForm()
-        return render(request,'contact.html',{'form':form})
+        return render(request,'contact.html',{'form':form,'restaurant':restaurant})
 
 
