@@ -75,3 +75,4 @@ def OpeniongHour(request):
         'restaurant':restaurant,'opening_hours'restaurat.opening_hour if restaurant else None
     }
     return render(request,'homepage.html',context)
+
