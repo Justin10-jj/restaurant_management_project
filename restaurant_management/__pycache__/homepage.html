@@ -171,6 +171,15 @@
                 align-item:center;
                 justify-content:center;
                 }
+                .opening-hours ul{
+                list-style:none;
+                padding-left:0;
+
+                }
+                .opening-hours li{
+                padding:5px 0;
+                font-size:1.1em
+                }
 
                 .hero h1{
                 font-size:3em;
@@ -198,7 +207,19 @@
             {% endif %}
             <p>this page display the user profile</p>
         </div>
-        <div class="order-now-container">
+        <div class="opening-hours">
+            <h3>opening Hours<h3>
+                {% if opening_hours %}
+                <ul>
+                    {% for day,hours in opening _hours.items %}
+                    <li><strong>{{ day }}</strong>:{{ hours }}</li>
+                    {% endfor %}
+                </ul>
+                    {% else %}
+                    <p>opening hours not availabile</p>
+                    {% endif %}
+                    </div>
+       <div class="order-now-container">
             <a href="{% url 'order_page %}"class="order-now-btn ">order now</a>
         </div>
         <div class="current-time">
