@@ -28,7 +28,7 @@ class RestaurantLocation(models.Model):
     city=models.CharField(max_length=100)
     state=models.CharField(max_length=100)
     zip_code=models.CharField(max_length=60)
-    opening_hour=models.JSONField(default=dict)
+    opening_hour=models.JSONField(default=DEFAULT_OPENING_HOURS)
     phone_number=models.IntegerField(max_length=30)
     history=models.TextField(null=True,blank=True)
     mission=models.TextField(null=True,blank=True)
