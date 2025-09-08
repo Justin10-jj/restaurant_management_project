@@ -69,4 +69,9 @@ def SpecialListView(ListView):
 
 
 def OpeniongHour(request):
-    restaurant=
+    restaurant=RestaurantLocation.objects.first()
+    context={
+
+        'restaurant':restaurant,'opening_hours'restaurat.opening_hour if restaurant else None
+    }
+    return render(request,'homepage.html',context)
