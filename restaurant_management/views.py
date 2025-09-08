@@ -76,3 +76,16 @@ def OpeniongHour(request):
     }
     return render(request,'homepage.html',context)
 
+
+
+def contact_view(request):
+    if request.method=='POST':
+        form=ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return render(request,'conatact.html')
+        else:
+            fprm=ContactForm()
+        return render(request,'contact.html',{'form':form})
+
+
