@@ -65,3 +65,8 @@ def SpecialListView(ListView):
     model=Special
     template_name='homepage.html'
     context_object_name='special'
+
+
+
+def OpeniongHour(request):
+    restaurant=
