@@ -33,6 +33,8 @@ class RestaurantLocation(models.Model):
     history=models.TextField(null=True,blank=True)
     mission=models.TextField(null=True,blank=True)
     image=models.ImageField(upload_to='restaurant/',blank=True,null=True)
+    description=models.TextField(null=True,blank=True)
+    
 DEFAULT_OPENING_HOURS={
     "monday":"9:00 am - 5:00 pm",
     "tue":"9:00 am - 5:00 pm",
