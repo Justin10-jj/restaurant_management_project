@@ -90,3 +90,5 @@ def contact_view(request):
         return render(request,'contact.html',{'form':form,'restaurant':restaurant})
 
 
+def menu_view(request):
+    menu_item=MenuList.objects.all()
