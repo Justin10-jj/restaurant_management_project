@@ -58,6 +58,12 @@
             {% endif %}
             welcome to our restaurant where culinary art meet passion!our restaurant offers a warm,inviting atmosphere with dishes crafted from the refresh ingrredients.we are committed to providing you an unforgettable dining experience.
             </p>
+            <p>
+            {% if restaurant.description %}
+                {{ restaurant.description }}
+            {% else %}
+            Welcome to our restaurant where culinary art meets passions ! our restaurant offers a warm,inviting atmosphere with dishes crafted from the ingredients.we are committed to providing you an unforgettable dining experience
+            {% endif %}
             <img src={% static 'images/res.jpg' %} alt="Restaurant Interior"/>
             </div>
             </body>
