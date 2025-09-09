@@ -92,3 +92,7 @@ def contact_view(request):
 
 def menu_view(request):
     menu_item=MenuList.objects.all()
+    paginator=paginator(menu_item,5)
+    page_number=request.GET.get('page')
+    page_obj=paginator.get_page(page_number)
+    return render(request,'menulist.html','page_obj':page_obj)
