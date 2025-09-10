@@ -37,7 +37,14 @@
             <p>{{ item.description }}</p>
         </div>
         {% endfor %}
-
+        <div class="menu-item">
+            <h2>{{ item.name }}</h2>
+            <p>{{ item.description }}</p>
+            <p classn"price">{{ item|availability_label }}</p>
+            {% if item.image %}
+            <img src="{{ item.image.url }}"alt="{{} item.name }">
+            {% endif %}
+        </div>
         <div class="pagination">
             <span>
                 page {{ page_obj.number }} of {{ page_obj.pagination.num_pages }}
