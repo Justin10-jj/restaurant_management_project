@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>About the chef</title>
+        <style>
+            body{font-family:Arial,sans-serif;padding:2rem; }
+            ..chef-profile{display:flex;align-items:cenetr; }
+            .chef-profile img{ width:250px; height:auto;border-radius:12px; }
+            .chef-info{ max-width:600px; }
+            .chef-info h2{margin-top:0;font-size:2rem; }
+            .chef-info p{ font-size:1.1rem; line-height:1.5; }
+            </style>
+    </head>
+    <body>
+        <div class="chef-profile">
+            {% if chef.image %}
+            <img src="{{ Chef.image.url }}"alt="{{ Chef.name }}">
+            {% endif %}
+            <div class="chef-info">
+                <h2>{{ Chef.name }}</h2>
+                <p>{{ Chef.bio }}</p>
+            </div>
+        </div>
+        
+    </body>
+</html>
