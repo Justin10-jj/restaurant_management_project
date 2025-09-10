@@ -69,3 +69,7 @@ class Special(models.Model):
     price=models.DeciamlField(max_digit=6,decimal_places=2)
 
 
+class Chef(models.Model):
+    name=modles.CharField(max_length=100)
+    bi0=modles.TextField()
+    image=models.ImageField(upload_to='chef_image/',blank=True,null=True)
