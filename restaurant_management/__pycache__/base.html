@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>{% block title %}Restaurant{% endblock %}</title>
+        <style>
+            body{
+            font-family:'Segoe UI',sans-serif ;
+            maegin:0;
+            paddding:0;
+            min-height:100vh;
+            display:flex;
+            flex=direction:column;
+            }
+            main{
+            flex: 1;
+            }
+            
+            footer{
+            background:#004080;
+            color:white;
+            text-align:center;
+            padding:15px 0;
+            font-size:14px;
+            margin-top:auto;
+            }
+            </style>
+    </head>
+    <body>
+        <header>
+        </header>
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+        <footer>
+            &copy;{{now|date:"Y"}}Restaurant,All Rights Reserverd.</footer>
+    </body>
+</html>
