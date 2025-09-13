@@ -78,6 +78,15 @@
                 {{ form.as_p }}
                 <button type="submit">submit</button>
             </form>
+            {% if messages %}
+            <ul>
+                {% for message in message %}
+                <li style="color:green;">{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endfor %}
+        </div>
+        
             {% if restairant %}
             <div class="restaurant-address">
                 <h4>Visit</h4>
