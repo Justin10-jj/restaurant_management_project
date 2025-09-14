@@ -1,10 +1,12 @@
 {% now %}
+{% extends "base.html %}
+{% block title %}Homepage {% endblock %}
+
 {% include 'includes/breadcrumbs.html' %}
-<html>
-    <head>
+{% block content %}
+<
         {% load static %}
-        <title>
-            Homepage</title>
+       
             <style>
                 body{
                 margin:0;
@@ -310,6 +312,5 @@ style="border:0;"
         </section>
 
   </body>
-</html>
-
+{% endblock %}
 
