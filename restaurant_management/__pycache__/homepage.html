@@ -253,6 +253,17 @@
                 <button type="submit">login</button>
             </form>
         </div>
+        <div class="opening-hours">
+            {% if opening_hpors %}
+            <ul>
+                {% for day ,hours in openiong_hours.items %}
+                <li><strong>{{ day }}</strong>:{{ hours }}</li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p>opening hours not availabile </p>
+        </div>
+        
         <nav class="breadcrumbs">
             <a href="{% url 'home' %}">Home</a>
             {% for crumb in crumbs %}
