@@ -96,3 +96,11 @@ def menu_view(request):
     page_number=request.GET.get('page')
     page_obj=paginator.get_page(page_number)
     return render(request,'menulist.html','page_obj':page_obj)
+
+
+def HomeOpenongTime(request):
+    opening_hours={
+        "monday":"9:00 AM - 9:00 PM ",
+        "Tuesday":"(:00 AM - 9:00 PM"
+    }
+    return render(request,"home.html",{"opening_hours":opening_hours})
