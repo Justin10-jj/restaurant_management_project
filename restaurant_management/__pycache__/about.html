@@ -1,9 +1,8 @@
 {% extends "base.html %}
 {% block content %}
 {% load static %}
-<html>
-    <head>
-        <title> About{{ restaurant_name }}</title>
+{% block title %}About {{ restaurant_name }}{% endblock %}
+
         <style>
             body{
             font-family:Times New Roman;
