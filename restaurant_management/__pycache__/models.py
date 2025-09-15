@@ -92,3 +92,7 @@ class OrderItem(models.Model):
     order=models.ForeignKey(Order,on_delete=models.CASCADE)
     product=models.ForeignKey(MenuList,on_delete=models.CASCADE)
     quantity=models.PositiveIntegerField(default=1)
+
+
+class MenuCategory(models.Model):
+    name=models.CharField(max_length=100,unique=True)
