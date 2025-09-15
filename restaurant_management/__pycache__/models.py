@@ -73,3 +73,22 @@ class Chef(models.Model):
     name=modles.CharField(max_length=100)
     bi0=modles.TextField()
     image=models.ImageField(upload_to='chef_image/',blank=True,null=True)
+
+
+
+class OrderStaus(models.Model):
+    name=models.CharField(max_length=50)
+
+
+
+class Order(models.Model):
+    user=models.ForeignKey(user,on_delete=models.CASCADE)
+    item=models.ManyTManyField(MenuList,through="OrderItem")
+    status=models.ForeignKey(OrderStaus,on_delete=models.SET_NULL,null=True)
+    created_at=models.DateTimeField(auto_now_add=True)
+
+
+class OrderItem(models.Model):
+    order=models.ForeignKey(Order,on_delete=models.CASCADE)
+    product=models.ForeignKey(MenuList,on_delete=models.CASCADE)
+    quantity=models.PositiveIntegerField(default=1)
