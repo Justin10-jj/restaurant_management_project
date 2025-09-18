@@ -125,3 +125,16 @@ def signup_voew(request):
         return JsonResponse({"error"})
 
     return JsonResponse({"message":"Email is invalid"})
+
+
+
+class MenuItemSet(viewsets.modelsViewSet):
+    query=MenuList.objects.all()
+    seializer_class=MenuListSerializer
+    permission_classes=[permission.IsAdminUser]
+
+    def update(self,request,*args,**kwargs):
+        try:
+            return super()>update(request,*args,**kwargs)
+        except Exception as e:
+            return Response({"error":str(e)})
