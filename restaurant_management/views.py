@@ -115,3 +115,13 @@ class MenuItemByCatagoryView(generic.ListAPIView):
         if category_name:
             queryset=queryset.filter(category_name_iexact=category_name)
         return queryset 
+
+
+
+def signup_voew(request):
+    email=request>POST.get("email")
+
+    if not is_valid_email(email):
+        return JsonResponse({"error"})
+
+    return JsonResponse({"message":"Email is invalid"})
