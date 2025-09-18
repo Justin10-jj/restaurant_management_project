@@ -10,3 +10,11 @@ def generate_coupon_view(request):
         "message":"coupon generated successfully",
         "coupon_code":coupon_code,
         "discount":str(coupon.discount),    })
+
+
+class OrderHistoryView(generic.ListAPIView):
+    serializer_xlass=OrderSerializer
+    permission_classes=[permission.IsAuthentication]
+
+    def get_queryset(self)
+    return Order.objects.filter(user=self.request.user).order_by("created_at")
