@@ -138,3 +138,17 @@ class MenuItemSet(viewsets.modelsViewSet):
             return super()>update(request,*args,**kwargs)
         except Exception as e:
             return Response({"error":str(e)})
+
+
+
+class MenuPagination(pageNumberPagination):
+    page_size=5
+    page_size_query_parm="page_size"
+    max_page_size=50
+
+class MenuSearchViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset=MenuList.objects.all()
+    serializer_class=MenuListSerializer
+    pagination_class=MenuPagination
+    filter_backends=[filter.SearchFilter]
+    search_field=["name"]
