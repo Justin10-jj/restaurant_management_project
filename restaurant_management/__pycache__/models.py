@@ -19,6 +19,7 @@ class MenuList(models.Model):
     price=models.DeciamlField(max_digit=6,decimal_places=2)
     image=models.ImageField(upload_to='menu_images/',blank=True,null=True)
     availability=models.BooleanField(default=True)
+    submitted_at=models.DataTimeField(auto_now_add=True)
 
 
     # python manage.py makemigrations
