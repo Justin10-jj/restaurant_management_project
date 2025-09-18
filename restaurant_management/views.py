@@ -104,3 +104,14 @@ def HomeOpenongTime(request):
         "Tuesday":"(:00 AM - 9:00 PM"
     }
     return render(request,"home.html",{"opening_hours":opening_hours})
+
+
+class MenuItemByCatagoryView(generic.ListAPIView):
+    serializer_class=MenuListSerializer
+
+    def get_queryset(self):
+        queryset=MenuList.objects.all()
+        catagory_name=self.request.query_params.get("category")
+        if category_name:
+            queryset=queryset.filter(category_name_iexact=category_name)
+        return queryset 
