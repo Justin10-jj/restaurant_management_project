@@ -32,3 +32,11 @@ def created_order(request):
 
 
     return Response(result)
+
+
+
+class OrderDetailView(generics.RetrieveAPIView):
+    queryset=Order.objects.all()
+    serializer_class=OrderSerializer
+    permission_classes=[perimission.IsAuthentication]
+    loookup_field="id"
