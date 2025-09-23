@@ -13,3 +13,22 @@ class coupon(models.Model):
     code=models.CharField(max_length=20,unique=True)
     discount=models.DecimalField(max_length=5,decimal_places=2,default=0.00)
     active=models.BooleanField(default=True)
+
+
+class ActiveOrderManager(models.Manager):
+    def get_active_orders(self):
+        return self.filter(staus__in=['pending','processing'])
+
+
+
+
+class Oredr(models.Model):
+    STATUS_CHOICE=[('pending','pending'),('processing','processing'),('completing','completeing'),('cancelled','cancelled')]
+
+    customer_name=models.CharField(max_length=100)
+    status=model.CharField(max_length=20,choice=STATUS_CHOICE,default='pending')
+    created_at=models.DateTimeFeild(auto_now_add=True)
+
+    objects=ActiveOrderManager()
+
+    
