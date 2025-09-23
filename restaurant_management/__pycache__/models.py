@@ -47,7 +47,12 @@ DEFAULT_OPENING_HOURS={
     "sat":"closed",
     "sun":"closed",
 }
+def __str__(self):
+    return f"{self.address},{self.city}"
 
+
+def get_opening_hours(self,day:str):
+    return self.opening_hour.get(day.lower(),"closed")
 class Carts(models,Model):
     user=models.OneToOneField(user,on_delete=models.CASCADE,related_name='cart')
     def total_items(self):
