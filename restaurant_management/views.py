@@ -161,3 +161,16 @@ def test_restaurant(request):
     return JsonResponse({
         "opening_hour":r.opening_hour,"monday":r.get_opening_hours("monday","friday":r.get_opening_hours("friday"))
     })
+
+
+
+
+class UserProfileViewSet(viewsets.ViewSet):
+    permission_classes=[permission.IsAuthenticated]
+
+    def retrieve(self,request):
+        serializer=UserProfileSerializer(request.user,data=requ\.data,partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serilaizer.data)
+        return Response(serilaizer.errors,status=400)
