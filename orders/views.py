@@ -18,3 +18,17 @@ class OrderHistoryView(generic.ListAPIView):
 
     def get_queryset(self)
     return Order.objects.filter(user=self.request.user).order_by("created_at")
+
+
+
+def created_order(request):
+    order_id=101
+    customer_email="customer@emailexample.com"
+    customer_name="john"
+    total_amound=49.99
+
+    result=send_order_confirmation_email(order_id,customer_email,customername,total_amound)
+
+
+
+    return Response(result)
