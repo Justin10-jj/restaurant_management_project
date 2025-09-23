@@ -152,3 +152,12 @@ class MenuSearchViewSet(viewsets.ReadOnlyModelViewSet):
     pagination_class=MenuPagination
     filter_backends=[filter.SearchFilter]
     search_field=["name"]
+
+
+
+def test_restaurant(request):
+    r=RestaurantLocation.objects.create(address="123 main st",
+    city="new york",state="ny",)
+    return JsonResponse({
+        "opening_hour":r.opening_hour,"monday":r.get_opening_hours("monday","friday":r.get_opening_hours("friday"))
+    })
