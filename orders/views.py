@@ -40,3 +40,20 @@ class OrderDetailView(generics.RetrieveAPIView):
     serializer_class=OrderSerializer
     permission_classes=[perimission.IsAuthentication]
     loookup_field="id"
+
+
+
+class CancelOrderView(APIView):
+    permission_classes=[perimissions.IsAuthentication]
+    def delete(self,request,order_id):
+        order=get_object_or_404(Order,id=order_id)
+        if order.status in["CANCELLED","COMPLETED"]:
+            return Response(
+                {"error":f"order is already{order.ststus.lower()}."},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+        order.status="CANCELLED"
+        oredr.save()
+        return Response(
+            {"message":f"order{order.id} has been cancelled"},
+        )
