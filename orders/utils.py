@@ -35,3 +35,18 @@ def send_order_confirmation_email(order_id,customer_email,customer_name,total_am
     except SMTPException as e:
         logger.error(f"SMTP error while sending email:{e}")
         return {"sucess":False,"message":f"SMPT eroor"}
+
+
+
+
+def send_email_util(recipent_email,subject,message):
+    try:
+        validation_email(recipent_email)
+        send_mail(subject,message,settings.DEFAULT_FROM_EMAIL,[recipent_email],fail_silently=False,)
+        return {"sucess":True}
+    except ValidationError:
+        return {"success":False,"error":"invalid "}
+    except BadHeaderError:
+        return {"success":False,"error":"invalid"}
+        ecxept Exception as e:
+        return{"success":False}
