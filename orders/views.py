@@ -57,3 +57,11 @@ class CancelOrderView(APIView):
         return Response(
             {"message":f"order{order.id} has been cancelled"},
         )
+
+class NotifyCustomerView(APIView):
+    def post(self,request)
+    email=reuest.data.get("email")
+    subject=request.data.get("subject","order update")
+    message=request.data.get("message","thank you for your rder")
+    result=send_email_util(email,subject,message)
+    
