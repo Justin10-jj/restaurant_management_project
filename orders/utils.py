@@ -50,3 +50,11 @@ def send_email_util(recipent_email,subject,message):
         return {"success":False,"error":"invalid"}
         ecxept Exception as e:
         return{"success":False}
+
+
+def generate_unique_oredr_id(length=8):
+    alphabet=string.ascii_uppercase+string.digits
+    while True:
+        new_id=''.join(secrets.choice(alphabet)for _ in range(length))
+        if not Order.objects.filter(order_id=new_id).exists()):
+            return new_id
