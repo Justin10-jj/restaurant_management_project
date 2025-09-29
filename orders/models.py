@@ -3,6 +3,12 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class Order(models.Model):
+    STATUS_CHOICE=[
+        ("PENDING","pending"),
+        ("PROCESSING","processing"),
+        ("CANCELLED","cancelled"),
+        ("COMPLETED","completed"),
+    ]
     customer=models.ForeignKey(User,on_delete=models.CASCADE)
     total_amound=models.DecimalField(max_digits=8,decimal_places=2,default=0.00)
     status=models.CharField(max_length=10,default=0)
