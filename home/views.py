@@ -16,3 +16,11 @@ class ContactFormSubmissionView(generic.CreateAPIView):
             }
         )
     return Response(serializer.error)
+
+
+
+class DailySpeciaListView(generics.ListAPIView):
+    serializer_class=DailySpecialSerializer
+
+    def get_queryset(self):
+        return MenuItem.objects.filter(is_daily_special=True)
