@@ -56,3 +56,26 @@ class OredrItem(models.Model):
     menu_item=models.ForeignKey(MenuItem,on_delete=models.CASCADE)
     quantity=models.PositiveIntegerField(default=1)
     price=models.DecimalField(max_digits=8,decimal_places=2)
+
+
+
+class OrderManager(models.Manager):
+    def with_status(self,status):
+        return self.filter(status=status)
+    def pending(self):
+        return self.with_status('pending')
+    def completed(self):
+        return self.with_status('completed')
+    def cancelled(self):
+        return self.with_status('cancelled')
+
+class Order(models.Model):
+    STATUS_CHOICE=[
+        ('pending','pending'),
+        ('completed','completed'),
+        ('cancelled','cancelled'),
+    ]
+    customer=models.CharField(max_length=100)
+    status=models.CharField(max_length=20,choices=STATUS_CHOICE,default='pending')
+    created_at=models.DateTimeFeild(auto_now_add=True)
+    objects=OrderManager()
