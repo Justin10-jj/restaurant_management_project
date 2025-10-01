@@ -65,3 +65,11 @@ class NotifyCustomerView(APIView):
     message=request.data.get("message","thank you for your rder")
     result=send_email_util(email,subject,message)
     
+@api_view['GET']
+def order_total(request,pk):
+    oredr=Order.objects.get(pk=pk)
+    return Response({
+        "order_id":oredr.id,
+        "customer":order.customer_name,
+        "total":str(order.calculate_total())
+            })
