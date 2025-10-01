@@ -8,6 +8,7 @@ class Order(models.Model):
         ("PROCESSING","processing"),
         ("CANCELLED","cancelled"),
         ("COMPLETED","completed"),
+        ("DELIVERED","delivered"),
     ]
     customer=models.ForeignKey(User,on_delete=models.CASCADE)
     total_amound=models.DecimalField(max_digits=8,decimal_places=2,default=0.00)
