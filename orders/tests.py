@@ -28,3 +28,15 @@ class CancelOrderAPITests(APITestCase):
         self.order.status='CANCELLED'
         self.order.save()
         response=self.client.delete("f/order/{self.order.id}/cancel/")
+
+
+
+class OrderTotalTest(TestCase):
+    def setUp(self):
+        self.user=User.objects.craete(username="testuser")
+    def test_oredr_with_items_and_discount(self):
+        oredr=Order.objects.create(customer=self.user,customer_name="Test User")
+        orderitem.objects.create(order=order,menu_item="pizza",price=Decimal("10.00"),quantity=2)
+        Orderitem.objects.create(order=order,menu_item="pasta",price=Decimal("5.00"),quantity=1,discount_percent=10)
+
+        self.asserEqual(order.calculate_total(),Deimal("23.50"))
