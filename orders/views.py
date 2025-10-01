@@ -73,3 +73,24 @@ def order_total(request,pk):
         "customer":order.customer_name,
         "total":str(order.calculate_total())
             })
+
+
+
+
+@api_view(["POST"])
+@perimission_classes([IsAuthentication])
+def update_order_status(request):
+    serializer=OrderStatusUpdateSerializer(data=request.data)
+    if serializer.is_valid():
+        order_id=serializer.validated_data["order_id"]
+        new_status=serializer.validated_data["new_status"]
+
+        order=get_objects_or_404(Order,id=order_id)
+        order.status=new_status
+        order.save()
+        return Response(
+            {"message":f"Order{order.id}status updated to {order.status}},
+            status=status.HTTP_200_OK
+        )
+    else:
+        return Response(serializer.error,status.GTTP_400_BAD_REQUEST)
