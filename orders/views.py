@@ -94,3 +94,21 @@ def update_order_status(request):
         )
     else:
         return Response(serializer.error,status.GTTP_400_BAD_REQUEST)
+    
+
+class OrderStatusUpdateView(generics.UpdateAPIView):
+    serializer_class=OrderStatusUpdateSerializer
+    permission_classes=[IsAuthentication]
+    queryset=Order.objects.all()
+    lookup_field="pk"
+
+    def put(self,request,*args,**kwargs):
+        order=get_object_or_404(Order,pk=kwargs["pk"])
+        serializer=self.get_serializer(order,data=request.data,partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(
+                {"message":f"order{oredr.id} status updated to {order.status}}
+                status=status.HTTP_200_OK
+            )
+        return Response(serializer.error,status=status.HTTP_400_BAD_REQUEST)
