@@ -16,10 +16,13 @@ class Order(models.Model):
     customer_name=models.CharField(max_length=255)
 
 
-    def calculated_total(models.Model):
+    def calculated_total(self):
         total=Decimal("0.00")
         for item in self.item.all():
             total +=item.price * item.quantity
+            if hasattr(item,"discount_percent")and item.discount_percent:
+                line_total=calculate_discount(line_total,item.discount_percent)
+            total+=line_total
         return total 
 
 
@@ -56,6 +59,7 @@ class OredrItem(models.Model):
     menu_item=models.ForeignKey(MenuItem,on_delete=models.CASCADE)
     quantity=models.PositiveIntegerField(default=1)
     price=models.DecimalField(max_digits=8,decimal_places=2)
+    discount_percent=models.DecimalField(max_length=5,decimal_places=2,null=True)
 
 
 
