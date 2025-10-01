@@ -18,5 +18,12 @@ class OrderSerializer(serializers.ModelSerializer):
 
 
 class OrderStatusUpdateSerializer(serializers.serializer):
-    order_id=serializers.IntegerField()
-    new_status=serializers.ChoiceField(choice=order.STATUS_CHOICES)
+    class Meta:
+        model=Order
+        field=["status"]
+    def validate_status(self,value):
+        allowed_statuses=[choice[0]for choice in Order.STATUS.CHOICES]
+
+        if value not in allowed_statuses:
+            raise serializer.validationError(f"Invalid status.Allowed:{allowed_statuses}) 
+        return value    
