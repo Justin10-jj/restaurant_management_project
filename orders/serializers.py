@@ -14,3 +14,9 @@ class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model=Order
         filed=["id","customer","item","total_price","created_at"]
+
+
+
+class OrderStatusUpdateSerializer(serializers.serializer):
+    order_id=serializers.IntegerField()
+    new_status=serializers.ChoiceField(choice=order.STATUS_CHOICES)
