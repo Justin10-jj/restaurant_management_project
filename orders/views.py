@@ -112,3 +112,23 @@ class OrderStatusUpdateView(generics.UpdateAPIView):
                 status=status.HTTP_200_OK
             )
         return Response(serializer.error,status=status.HTTP_400_BAD_REQUEST)
+
+
+class CouponValidationView(APIView):
+    def post(self,request):
+        code=request.data.get("code","").strip()
+        if not code:
+            return Response({"error":"coupon code is required."},status=status.HTTP_400_BAD_REQUEST)
+        try:
+            coupon=Coupon.objects.get(code=code)
+        except Coupon.DoesNotExist:
+            return Response({"error":"Invalid coupon code"},status=status.HTTP_400_BAD_REQUEST)
+
+        today=timezone.now.date()
+        if not coupon.is_active or not (coupon.valid_from<= today <=coupon.valid_until):
+            return Response({"error":"coupon is expired or inactive."},status=status.HTTP_400_BAD_REQUEST)
+        serializer=CouponSerializer(coupon)
+        return Response(
+            {"sucess":True,"coupon":serializer.data},
+            status=status.HTTP_200_OK
+        )
