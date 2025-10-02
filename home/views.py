@@ -24,3 +24,10 @@ class DailySpeciaListView(generics.ListAPIView):
 
     def get_queryset(self):
         return MenuItem.objects.filter(is_daily_special=True)
+
+
+class AvailableTableAPIView(generics.ListAPIView):
+    serializer_class=TableSerializer
+
+    def get_queryset(self):
+        return Table.objects.filter(is_available=True)
