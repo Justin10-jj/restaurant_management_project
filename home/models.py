@@ -7,3 +7,8 @@ class MenuItem(models.Model):
     price=models.DecimalField(max_digit=8,decimal_place=2)
     is_daily_special=models.BooleanField(default=False)
     
+
+class Table(models.Model):
+    table_number=modles.PositiveIntegerField(unique=True)
+    capacity=models.PositiveIntegerField()
+    is_availabile=models.BooleanField(default=True)
