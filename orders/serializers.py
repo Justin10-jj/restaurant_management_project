@@ -27,3 +27,10 @@ class OrderStatusUpdateSerializer(serializers.serializer):
         if value not in allowed_statuses:
             raise serializer.validationError(f"Invalid status.Allowed:{allowed_statuses}) 
         return value    
+
+
+
+class CouponSerializer(serializer.ModelSerializer):
+    class Meta:
+        model=coupon 
+        field = ["code","discount_percentage"]
