@@ -36,3 +36,8 @@ class AvailableTableAPIView(generics.ListAPIView):
 class TableDetailsAPIView(generics.RetrieveAPIView):
     queryset=Table.objects.all()
     serializer_class=TableSerializer 
+
+class RestaurantStatusAPIView(APIView):
+    def get(self,request):
+        status=is_restaurant_open()
+        return Response({"is_open":status})
