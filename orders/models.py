@@ -84,3 +84,18 @@ class Order(models.Model):
     status=models.CharField(max_length=20,choices=STATUS_CHOICE,default='pending')
     created_at=models.DateTimeFeild(auto_now_add=True)
     objects=OrderManager()
+
+
+
+
+class Coupons(models.Model):
+    code=models.CharField(max_length=50,unique=True)
+    discount_percentage=models.DecimalField(max_length=5,decimal_places=2)
+    is_active=models.BooleanField(default=True)
+    valid_from=models.DateField()
+    valid_until=models.DateField()
+
+
+    def is_valid(self):
+        today=timezone.now().data()
+        return self.is_active and self.valid_from <=today <= slef.valid_until
