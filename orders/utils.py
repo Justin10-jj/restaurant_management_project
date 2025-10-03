@@ -38,23 +38,6 @@ def send_order_confirmation_email(order_id,customer_email,customer_name,total_am
 
 
 
-
-def send_email_util(recipent_email,subject,message):
-    try:
-        validation_email(recipent_email)
-        send_mail(subject,message,settings.DEFAULT_FROM_EMAIL,[recipent_email],fail_silently=False,)
-        return {"sucess":True}
-    except ValidationError:
-        return {"success":False,"error":"invalid "}
-    except BadHeaderError:
-        return {"success":False,"error":"invalid"}
-        ecxept Exception as e:
-        return{"success":False}
-
-
-def generate_unique_oredr_id(length=8):
-    alphabet=string.ascii_uppercase+string.digits
-    while True:
-        new_id=''.join(secrets.choice(alphabet)for _ in range(length))
-        if not Order.objects.filter(order_id=new_id).exists()):
-            return new_id
+def get_daily_sales_total(date):
+    result=Order.objects.filter(create_at__date=date).aggregate(total_sum=sum('total_price'))
+    return result['total_sum']or 0
