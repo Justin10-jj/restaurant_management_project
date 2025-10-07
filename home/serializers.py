@@ -15,4 +15,10 @@ class TableSerializer(serilaizers.ModelSerializer):
     class Meta:
         model=Table 
         field=["table_number","capacity","is_availabile"]
+
+
+class MenuCategorySerializers(serilaizers.ModelSerializer):
+    class  Meta:
+        model=MenuCategy 
+        field=['id','name']
         
