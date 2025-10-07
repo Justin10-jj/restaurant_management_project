@@ -41,3 +41,9 @@ class RestaurantStatusAPIView(APIView):
     def get(self,request):
         status=is_restaurant_open()
         return Response({"is_open":status})
+
+
+class MenuCategoryViewSet(Viewsets.MpdelViewSet):
+    queryset=MenuCategory.objects.all().order_by('id')
+    serializer_class=MenuCategorySerializer
+    permission_classes=[permission.IsAuthenticatedOrderReadyOnly]
