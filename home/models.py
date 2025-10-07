@@ -12,3 +12,8 @@ class Table(models.Model):
     table_number=modles.PositiveIntegerField(unique=True)
     capacity=models.PositiveIntegerField()
     is_availabile=models.BooleanField(default=True)
+
+
+class MenuCategoery(models.Model):
+    name=models.CharField(max_length=100,unique=True)
+    
