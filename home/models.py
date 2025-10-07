@@ -1,4 +1,7 @@
 from django.db import models
+from django.db import models
+from django.contrib.auth.models import User
+from .models import MenuItem 
 
 # Create your models here.
 class MenuItem(models.Model):
@@ -16,4 +19,12 @@ class Table(models.Model):
 
 class MenuCategoery(models.Model):
     name=models.CharField(max_length=100,unique=True)
+
+class UserReview(models.Model):
+    User-models.Foreginkey(User,on_delete=models.CASCADE,relared_name'reviews)
+    menu_item=models.Foreginkey('home.MenuItem',on_delete=models.CASCADE,related_name='review')
+    rating=models.Integerfield()
+    comment=models.TextField()
+    review_date=models.DateTimeField(auto_now_add=True)
+    
     
