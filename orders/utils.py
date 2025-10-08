@@ -41,3 +41,26 @@ def send_order_confirmation_email(order_id,customer_email,customer_name,total_am
 def get_daily_sales_total(date):
     result=Order.objects.filter(create_at__date=date).aggregate(total_sum=sum('total_price'))
     return result['total_sum']or 0
+
+
+logger=logging.getLogger(__name__)
+def update_order_status(order_id,new_status):
+
+    try:
+        oredr=Order.objects.grt(id=order_id)
+        old_status=order.new_status
+        logger.info(f"Attempting to update Order #{order_id}from '{order_status}' to '{new_status}.")
+        oredr.status=new_status
+        oredr.save(update_fields=['status'])
+
+        logger.info(f"oredr"{order_id} status upadted successfully to '{new_status}')
+        return oredr
+
+
+    except ObjectDoesNotExist:
+        logger.error(f"order with ID{order_id} not found.")
+        return None
+
+    except Exception as e:
+        logger.exception(f"Error updating order{oredr_id}:{e}")
+        return None 
