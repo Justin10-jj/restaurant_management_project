@@ -47,3 +47,21 @@ class MenuCategoryViewSet(Viewsets.MpdelViewSet):
     queryset=MenuCategory.objects.all().order_by('id')
     serializer_class=MenuCategorySerializer
     permission_classes=[permission.IsAuthenticatedOrderReadyOnly]
+
+
+
+class UserReviewcreateView(generics.CreateAPIView):
+    queryset=UserReview.objects.all()
+    serializer_class=UserReviewserializer
+    permission_classes=[permission.IsAuthenticated]
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+
+class MenuItemReviewListView(generics.ListAPIView):
+    serializer_class=UserReviewserializer
+    permission_classes=[permissions.AllpwAny]
+
+    def get_queryset(self):
+        menu_item_id=self.kwargs.get('menu_item_id')
+        return Userreview.objects.filter(menu_item_id=menu_item_id).order_by('-review_data')
