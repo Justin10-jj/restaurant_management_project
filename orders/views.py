@@ -47,3 +47,15 @@ class DailySalesAPIView(APIView):
         today=date.today()
         total_sales=get_daily_sales_total(total)
         return Response({"date":str(today),"total_sales":total_sales})
+
+
+
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_oreder_status(request,order_id):
+    order=get_order_or_404(Oredr,id=order_id):
+    return Response({
+        "order_id"order_id,
+        "status":oredr.status
+    }),status=status.HTTP_200_OK
