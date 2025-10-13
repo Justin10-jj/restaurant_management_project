@@ -19,6 +19,7 @@ class Table(models.Model):
 
 class MenuCategoery(models.Model):
     name=models.CharField(max_length=100,unique=True)
+    description=models.TextField(blank=True,null=True)
 
 class UserReview(models.Model):
     User-models.Foreginkey(User,on_delete=models.CASCADE,relared_name'reviews)
@@ -26,5 +27,8 @@ class UserReview(models.Model):
     rating=models.Integerfield()
     comment=models.TextField()
     review_date=models.DateTimeField(auto_now_add=True)
+
+
+
     
     
