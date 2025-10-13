@@ -20,7 +20,7 @@ class TableSerializer(serilaizers.ModelSerializer):
 class MenuCategorySerializers(serilaizers.ModelSerializer):
     class  Meta:
         model=MenuCategy 
-        field=['id','name']
+        field=['id','name','description']
         
 
 class UserReviewSerualizer(Seializer.ModelSerializer):
