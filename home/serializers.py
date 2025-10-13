@@ -41,3 +41,10 @@ class UserReviewSerualizer(Seializer.ModelSerializer):
         request=self.context.get('request')
         validated_data['user']=request.user
         return super().craete(validated_data)
+
+
+class Restaurantserilaizer(serilaizer.ModelSerializer):
+    class Meta:
+        model=Restaurant 
+        field=['id','name','address','phone_number','opening_hours','emial','website','description']
+        
