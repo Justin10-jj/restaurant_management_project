@@ -64,3 +64,17 @@ def update_order_status(order_id,new_status):
     except Exception as e:
         logger.exception(f"Error updating order{oredr_id}:{e}")
         return None 
+
+
+def calculate_order_total(order_items):
+    if not order_items or not isinstance (order_items,list):
+        return 0.0
+    total=0.0
+    for item in order_items:
+        quantity=item.get('quantity',0)
+        price=item.get('price',0)
+        try:
+            total+=float(quantity)*float(price)
+        except(TypeError,ValueError):
+            continue
+    return round(total,2)
