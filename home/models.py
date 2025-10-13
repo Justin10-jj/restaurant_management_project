@@ -9,6 +9,7 @@ class MenuItem(models.Model):
     description=models.TextField(blank=True)
     price=models.DecimalField(max_digit=8,decimal_place=2)
     is_daily_special=models.BooleanField(default=False)
+    is_availabile=models.BooleanField(default=True)
     
 
 class Table(models.Model):
