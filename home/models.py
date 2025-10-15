@@ -58,3 +58,10 @@ class MenuItem(models.Model):
         else:
             final_price=self.price 
         return float(final_price) 
+
+
+class Review(models.Model):
+    user=models.ForeignKey(User,on_delete=modles.CASCADE)
+    rating=models.PositiveIntegerField()
+    text=models.TextField()
+    created_at=models.DateTimeField(auto_now_add=True)
