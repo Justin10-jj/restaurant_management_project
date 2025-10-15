@@ -43,3 +43,18 @@ class Restaurant( odels.Model):
 
     
     
+class MenuItem(models.Model):
+    name=models.CharField(max_length=100)
+    price=models.DecimalField(max_digits=8,decimal_places=2)
+    discount_percentage=models.DecimalField(
+        max_digits=5,decimal_places=2,default=0.0,
+        help_text="Discount percentage(eg,10 for 10%"
+    )
+
+    def get_final_price(self)->float:
+        if self.discount_percentage>0:
+            discount_amount=(self.price*self.discount_percentage)/100
+            final_price=self.price-discount_amount
+        else:
+            final_price=self.price 
+        return float(final_price) 
