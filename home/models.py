@@ -45,6 +45,7 @@ class Restaurant( odels.Model):
     
 class MenuItem(models.Model):
     name=models.CharField(max_length=100)
+    image=models.ImageField(upload_to="menu_images/",blank=True,null=True)
     price=models.DecimalField(max_digits=8,decimal_places=2)
     discount_percentage=models.DecimalField(
         max_digits=5,decimal_places=2,default=0.0,
@@ -65,3 +66,5 @@ class Review(models.Model):
     rating=models.PositiveIntegerField()
     text=models.TextField()
     created_at=models.DateTimeField(auto_now_add=True)
+
+
