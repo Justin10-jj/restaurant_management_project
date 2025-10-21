@@ -67,5 +67,6 @@ class Review(models.Model):
     rating=models.PositiveIntegerField()
     text=models.TextField()
     created_at=models.DateTimeField(auto_now_add=True)
+    restaurant=models.Foreginkey(Restaurant,on_delete=models.CASCADE)
 
 
