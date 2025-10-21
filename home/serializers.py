@@ -58,3 +58,9 @@ class ReviewSerializer(serilaizers.ModelSerializer):
         if value<1 or value>5:
             raise serializers.ValidationErrir("Rating must be between 1 and 5")
         return value
+
+
+class OpeningHoursSerilizers(serilizers.ModelSerializer):
+    class Meta:
+        model=OpeningHour 
+        fields=['restaurant','day','open_time','close_time']
