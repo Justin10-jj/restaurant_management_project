@@ -92,3 +92,10 @@ class RestaurantReviewListView(generics.ListAPIView):
     deg get_queryset(self):
     restaurant_id=self.kwargs.get('restaurant_id')
     return Review.objects.filter(restaurant_id=restaurant_id')
+
+
+class RestaurantOpenHoursView(generics.ListAPIView):
+    serializer_class=OpeningHourSerilizer
+    def get_queryset(self):
+        restaurant_id=self.kwargs.get('restaurant_id')
+        return OpeningHour.objects.filter(restaurant_id=restaurant_id)
