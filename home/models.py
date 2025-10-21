@@ -70,3 +70,18 @@ class Review(models.Model):
     restaurant=models.Foreginkey(Restaurant,on_delete=models.CASCADE)
 
 
+class OpeningHours(modles.Model):
+    DAYS_OF_WEEK=[
+        ('mondat',',monday'),
+        ('tuesday','tuesday'),
+        ('wednesday','wednesday'),
+        ('thursday','thursday'),
+        ('friday','friday'),
+        ('saturday','saturday'),
+        ('sunday','sunday')
+    ]
+    restaurant=models.ForeignKey(Restaurant,on_delete=models.CASCADE)
+    day=models.CharField(max_length=10,choice=DAYS_OF_WEEK)
+    open_time=models.TimeField()
+    close_time=models.TimeField()
+    
