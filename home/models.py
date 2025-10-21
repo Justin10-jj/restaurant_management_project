@@ -37,6 +37,7 @@ class Restaurant( odels.Model):
     opening_hours=models.CharField(max_length=255)
     email=models.EmailField(blank=True,null=True)
     website=models.URLField(blank=True,null=True)
+    location=models.CharField(max_length=200,blank=True,null=True)
     description=models.TextField(blank=True,null=True)
 
 
