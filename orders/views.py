@@ -59,3 +59,18 @@ def get_oreder_status(request,order_id):
         "order_id"order_id,
         "status":oredr.status
     }),status=status.HTTP_200_OK
+
+
+class OrderStatusView(generics.RetrieveAPIView):
+    serilizer_class=OrderStatusSerilizer
+    lookup_field='short_id'
+    queryset=Order.objects.all()
+    def get(slf,request,*args,**kwargs):
+        short_id=kwargs.get('short_id')
+
+        try:
+            order=Oredr.objects.get(short_id=short_id)
+        except Order.DoesNotExist:
+            raise NotFound(detail="order not found with the given ID")
+        serilizer=self.get_serilizer(order)
+        return Response(serilizer.data)
