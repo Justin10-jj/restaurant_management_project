@@ -79,3 +79,16 @@ class MenuItemSearchView(APIView):
         items=MenuItem.objects.filter(name__icontains=query)
         serilizer=MenuItemSearchSerilizer(item,many=True)
         return Response(serilizer.data,status=status.HTTP_200_OK)
+
+
+class ReviewPagination(pageNumberPagination):
+    page_size=5
+    page_size_query_parm='page_size'
+    max_page_size=20
+
+class RestaurantReviewListView(generics.ListAPIView):
+    serializer_class=ReviewSerilizer 
+    pagination_class=ReviewPagination 
+    deg get_queryset(self):
+    restaurant_id=self.kwargs.get('restaurant_id')
+    return Review.objects.filter(restaurant_id=restaurant_id')
