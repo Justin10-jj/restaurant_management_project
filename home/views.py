@@ -65,3 +65,17 @@ class MenuItemReviewListView(generics.ListAPIView):
     def get_queryset(self):
         menu_item_id=self.kwargs.get('menu_item_id')
         return Userreview.objects.filter(menu_item_id=menu_item_id).order_by('-review_data')
+
+
+
+
+class MenuItemSearchView(APIView):
+    def gat(self,request):
+        query=request.query_params.get('q','').strip()
+        if not query:
+            return Response(
+                {"errir":"please provide to search terms using the 'q'parameter"}
+            )
+        items=MenuItem.objects.filter(name__icontains=query)
+        serilizer=MenuItemSearchSerilizer(item,many=True)
+        return Response(serilizer.data,status=status.HTTP_200_OK)
