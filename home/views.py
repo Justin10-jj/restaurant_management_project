@@ -104,3 +104,9 @@ class RestaurantOpenHoursView(generics.ListAPIView):
 class FeaturedMenuItemsView(generics,ListAPIView):
     queryset=menuItem.objects.filter(is_featured=True)
     serilizer_class=MenuItemSerilizer 
+
+
+
+class MenuItemIngredientsView(generics.RetrieveAPIView):
+    def retrieve(self,request,*args,**kwargs):
+        menu_item=self.get_object()
