@@ -8,7 +8,7 @@ class ContactFormSubmissionSerializer(serilazers.ModelSerializer):
 class DailySpecialSerializer(serilazers.ModelSerializer):
     class Meta:
         model=MenuItem
-        field=['id','name','image','description','price','is_availabile']
+        field=['id','name','is_featured','image','description','price','is_availabile']
 
 
 class TableSerializer(serilaizers.ModelSerializer):
