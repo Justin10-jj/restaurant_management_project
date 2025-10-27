@@ -99,3 +99,8 @@ class RestaurantOpenHoursView(generics.ListAPIView):
     def get_queryset(self):
         restaurant_id=self.kwargs.get('restaurant_id')
         return OpeningHour.objects.filter(restaurant_id=restaurant_id)
+
+
+class FeaturedMenuItemsView(generics,ListAPIView):
+    queryset=menuItem.objects.filter(is_featured=True)
+    serilizer_class=MenuItemSerilizer 
