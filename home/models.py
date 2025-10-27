@@ -94,3 +94,10 @@ class OrderItem(models.Model):
     order=models.Foreginkey(Order,on_delete=models.CASCADE)
     menuItem=models.Foreginkey(MenuItem,on_delete=models.CASCADE )
     quantity=models.PositiveIntegerField(default=1)
+
+class DailySpecial(models.Model):
+    name=,odels.CharField(max_length=100)
+    description=models.TextField(blank=True)
+    price=models.DecimalField(max_digits=6,decimal_places=2)
+    is_active=models.BooleanField(default=True)
+    
