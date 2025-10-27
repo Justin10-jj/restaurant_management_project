@@ -10,6 +10,7 @@ class MenuItem(models.Model):
     price=models.DecimalField(max_digit=8,decimal_place=2)
     is_daily_special=models.BooleanField(default=False)
     is_availabile=models.BooleanField(default=True)
+    is_featured=models.BooleanField(default=False)
     
 
 class Table(models.Model):
@@ -85,3 +86,11 @@ class OpeningHours(modles.Model):
     open_time=models.TimeField()
     close_time=models.TimeField()
     
+
+class Order(models.Model):
+    created_at=models.DateTimeField(auto_now_add=True)
+
+class OrderItem(models.Model):
+    order=models.Foreginkey(Order,on_delete=models.CASCADE)
+    menuItem=models.Foreginkey(MenuItem,on_delete=models.CASCADE )
+    quantity=models.PositiveIntegerField(default=1)
