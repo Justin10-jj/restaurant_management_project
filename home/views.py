@@ -110,3 +110,12 @@ class FeaturedMenuItemsView(generics,ListAPIView):
 class MenuItemIngredientsView(generics.RetrieveAPIView):
     def retrieve(self,request,*args,**kwargs):
         menu_item=self.get_object()
+
+class MenuItemDetailsView(APIView):
+    def get(self,request,item_id):
+        try:
+            menu_item=MenuItem.objects.get(id=item_id)
+            serializer=MenuItemSearchSerilizer(menu_item,context={'request':request})
+            return Response(serilizer.data,status=status.HTTP_200_OK)
+        except MenuItem.DoesNotExist:
+            return Response({"error":"Menu item not found"},)
