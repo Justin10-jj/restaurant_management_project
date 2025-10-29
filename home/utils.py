@@ -13,3 +13,11 @@ def calculate_discount(orginal_price,discount_percentage):
     ecxept (ValueError,TyoeError)as e:
     print(f"Error calculating discount:{e}")
     return 0.0
+
+def get_distinct_cuisnes():
+    cuisines=(
+        MenuItem.objects
+        .value_list('cuisine_name',flat=true)
+        .distinct()
+    )
+    return [c for c in cuisines if c]
