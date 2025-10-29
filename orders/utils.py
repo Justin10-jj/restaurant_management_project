@@ -78,3 +78,14 @@ def calculate_order_total(order_items):
         except(TypeError,ValueError):
             continue
     return round(total,2)
+
+def claculate_discountamound(order_total,discountt_percentage):
+    try:
+        order_total=float(oredr_total)
+        discountt_percentage=float(discountt_percentage)
+        if oredr_total<0 or discountt_percentage<0:
+            raise ValueError("value ,ust be non negative")
+        discount_amound=oredr_total*(discountt_percentage/100)
+        return round(discount_amound,2)
+    except(ValueError,TypeError):
+        return 0.0
