@@ -52,6 +52,7 @@ class MenuItem(models.Model):
     discount_percentage=models.DecimalField(
         max_digits=5,decimal_places=2,default=0.0,
         help_text="Discount percentage(eg,10 for 10%"
+    is_availabile=models.BooleanField(default=True)
     )
 
     def get_final_price(self)->float:
